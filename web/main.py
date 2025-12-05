@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 import sqlite3
 import os
 from datetime import datetime
@@ -143,6 +143,15 @@ def click():
         conn.close() 
 
     return "click"
+
+
+@app.route('/download')
+def download():
+    path = "static/elephas_vpn.exe"
+    return send_file(
+        path,
+        as_attachment=True,
+    )
         
 
 # 运行应用
