@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <style>
+        /* 1. 基础重置和背景 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* 浅灰色背景 */
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            min-height: 100vh;
+        }
+
+        /* 2. 登录容器样式 */
+        .login-container {
+            background-color: #ffffff; /* 白色背景 */
+            padding: 40px;
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 柔和阴影 */
+            width: 350px;
+            text-align: center;
+        }
+
+        /* 3. 标题 */
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* 4. 表单组 */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* 5. 标签和输入框 */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* 确保 padding 不会增加总宽度 */
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff; /* 聚焦时的边框颜色 */
+            outline: none;
+        }
+
+        /* 6. 登录按钮和注册链接容器 */
+        .action-group {
+            display: flex; /* 启用 Flexbox */
+            justify-content: space-between; /* 按钮和链接之间留出空间 */
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* 登录按钮 */
+        button {
+            flex-grow: 1; /* 让按钮占据尽可能多的空间 */
+            padding: 12px;
+            background-color: #007bff; /* 主题蓝色 */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 15px; /* 按钮和链接之间的间距 */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* 鼠标悬停时的深蓝色 */
+        }
+        
+        /* 注册链接样式 */
+        .register-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px; /* 使点击区域更大 */
+            border: 1px solid #007bff; /* 增加边框使其看起来像个次要按钮 */
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .register-link:hover {
+            background-color: #e9f5ff;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="static/logo.png" />
+        <form action="login" method="POST">
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" placeholder="请输入您的用户名" required>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" placeholder="请输入您的密码" required>
+            </div>
+            
+            <div class="action-group">
+                <button type="submit">登 录</button>
+                <a href="register" class="register-link">注册</a> </div>
+        </form>
+    </div>
+</body>
+</html>

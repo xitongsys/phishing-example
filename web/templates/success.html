@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录成功</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6f7ff; /* 浅蓝色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .success-box {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            text-align: center;
+            border-left: 5px solid #007bff; /* 主题色蓝边 */
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        .label {
+            font-weight: 600;
+            color: #555;
+        }
+        .value {
+            color: #333;
+        }
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-box">
+        <h1>🎉 登录成功！</h1>
+
+        <img src="static/logo.png" />
+        
+        <div class="info-item">
+            <span class="label">账户名称：</span>
+            <span class="value">{{ user_info.username }}</span>
+        </div>
+        
+        <div class="info-item">
+            <span class="label">真实姓名：</span>
+            <span class="value">{{ user_info.realname }}</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">岗位名称：</span>
+            <span class="value">{{ user_info.position }}</span>
+        </div>
+
+        
+    </div>
+</body>
+</html>
