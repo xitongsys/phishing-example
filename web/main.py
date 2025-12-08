@@ -34,7 +34,8 @@ def init_db():
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS clicks (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                clicktime TEXT UNIQUE NOT NULL
+                clicktime TEXT UNIQUE NOT NULL,
+                macs TEXT
             )'''
         )
 
@@ -127,13 +128,15 @@ def login():
 @app.route('/click', methods=['GET'])
 def click():
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    macs = request.args.get('macs')
+
     conn = get_db_connection()
     cursor = conn.cursor()
-    
+
     try:
         cursor.execute(
-            "INSERT INTO clicks (clicktime) VALUES (?)",
-            (now,)
+            "INSERT INTO clicks (clicktime,macs) VALUES (?,?)",
+            (now, macs)
         )
         conn.commit()
         
@@ -147,7 +150,7 @@ def click():
 
 @app.route('/download')
 def download():
-    path = "static/elephas_vpn.exe"
+    path = "static/elephas_vpn.zip"
     return send_file(
         path,
         as_attachment=True,
