@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 	"net"
+	"strings"
 )
 
 func getMacAddrs() string {
@@ -23,7 +24,7 @@ func getMacAddrs() string {
         macAddrs = append(macAddrs, macAddr)
     }
 
-	return fmt.Sprint(macAddrs)
+	return fmt.Sprint(strings.Join(macAddrs,"_"))
     
 }
 
